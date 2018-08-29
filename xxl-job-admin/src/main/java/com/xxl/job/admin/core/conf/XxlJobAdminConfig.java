@@ -10,8 +10,9 @@ import org.springframework.context.annotation.Configuration;
  * @author xuxueli 2017-04-28
  */
 @Configuration
-public class XxlJobAdminConfig implements InitializingBean{
+public class XxlJobAdminConfig implements InitializingBean {
     private static XxlJobAdminConfig adminConfig = null;
+
     public static XxlJobAdminConfig getAdminConfig() {
         return adminConfig;
     }
@@ -33,8 +34,14 @@ public class XxlJobAdminConfig implements InitializingBean{
     @Value("${xxl.job.mail.password}")
     private String mailPassword;
 
+    @Value("${xxl.job.mail.sslPort}")
+    private String mailSslPort;
+
     @Value("${xxl.job.mail.sendNick}")
     private String mailSendNick;
+
+    @Value("${xxl.job.mail.charset}")
+    private String mailCharset;
 
     @Value("${xxl.job.login.username}")
     private String loginUsername;
@@ -62,8 +69,16 @@ public class XxlJobAdminConfig implements InitializingBean{
         return mailPassword;
     }
 
+    public String getMailSslPort() {
+        return mailSslPort;
+    }
+
     public String getMailSendNick() {
         return mailSendNick;
+    }
+
+    public String getMailCharset() {
+        return mailCharset;
     }
 
     public String getLoginUsername() {
